@@ -1,0 +1,111 @@
+/* stylesheets/index.css */
+:root {
+  --bg-color-secondary: hsl(60, 100%, 97%);
+  --bg-color-primary: white;
+  --text-color: black;
+  --link-color: hsl(240, 100%, 47%);
+}
+@media (prefers-color-scheme: dark) {
+  :root {
+    --bg-color-secondary: hsl(240, 100%, 13%);
+    --bg-color-primary: black;
+    --text-color: white;
+    --link-color: hsl(240, 100%, 77%);
+  }
+}
+*:not(dialog) {
+  font-family: -apple-system, Helvetica;
+  margin: 0;
+  padding: 0;
+  color: var(--text-color);
+  touch-action: manipulation;
+}
+body,
+input,
+dialog {
+  background-color: var(--bg-color-primary);
+}
+.grid {
+  display: grid;
+  grid-template-columns: repeat(3, 0.5fr);
+  gap: min(3vw, 3vh);
+  grid-template-rows: repeat(5, 1fr);
+  padding: 3vw;
+  height: 70vh;
+}
+.grid button {
+  appearance: none;
+  border: none;
+  font-size: min(8vw, 8vh);
+  cursor: pointer;
+  background-color: hsl(0, 0%, 70%);
+  user-select: none;
+  -webkit-user-select: none;
+  border-radius: 0.3rem;
+}
+#clear,
+#enter {
+  font-size: min(6vw, 6vh);
+}
+.grid button:hover {
+  background-color: hsl(0, 0%, 90%);
+}
+#clear {
+  background-color: hsl(0, 100%, 50%);
+}
+#enter {
+  background-color: hsl(120, 100%, 25%);
+}
+output {
+  font-size: min(8vw, 8vh);
+  letter-spacing: 3vw;
+  justify-self: center;
+  color: var(--text-color);
+  grid-column: 1 / 4;
+  grid-row: 1;
+}
+.obscure {
+  -webkit-text-security: disc;
+}
+#settings {
+  position: absolute;
+  bottom: 1rem;
+  left: 1rem;
+  font-size: 1.5rem;
+}
+:where(#settings) input,
+button {
+  font-size: 1.5rem;
+}
+dialog {
+  font-size: 1.5rem;
+}
+dialog::backdrop {
+  -webkit-backdrop-filter: blur(0.15rem);
+  backdrop-filter: blur(0.15rem);
+}
+@media screen and (min-width:500px) {
+  .grid {
+    grid-template-columns: repeat(3, 0.2fr);
+    justify-content: center;
+  }
+}
+.bar {
+  display: flex;
+  justify-content: space-around;
+  padding: 1rem 0;
+}
+dialog form input {
+  width: 10rem;
+  font-size: 1.5rem;
+}
+.bar button {
+  flex: 0 0 35%;
+}
+button {
+  font-size: 1.5rem;
+  background-color: var(--bg-color-secondary);
+  border: thin solid var(--text-color);
+  cursor: pointer;
+}
+/*# sourceMappingURL=index-OKKCZN7F.css.map */
