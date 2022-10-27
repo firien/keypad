@@ -1,0 +1,40 @@
+doctype html
+html(lang="en")
+  head
+    title=name()
+    meta(charset="UTF-8")
+    meta(name="Description" content=desc())
+    meta(name="theme-color" content=themeColor())
+    meta(name="apple-mobile-web-app-capable" content="yes")
+    meta(name="viewport" content="width=device-width, initial-scale=1")
+    // scripts
+    script&attributes(scriptAttributes('index.js'))
+    // css
+    link(rel='stylesheet' href=webAssetPath('index.css'))
+    // icons
+    link(rel="icon" href="favicon.ico" type="image/x-icon")
+    each icon in iconLinks()
+      link(rel=icon.rel sizes=icon.sizes href=icon.href)
+    // pwa
+    link(rel="manifest", href="manifest.webmanifest")
+  body
+    .grid
+      output
+      each num in [1,2,3,4,5,6,7,8,9]
+        button(value=num)=num
+      button#clear Clear
+      button(value=0) 0
+      button#enter Enter
+    dialog
+      form(method='dialog')
+        label Set Number
+        input(type='number' autofocus)
+        .bar
+          button Cancel
+          button OK
+    div#settings
+      button#number Set Number
+      label(for='obscure') Obscure
+      input#obscure(type='checkbox')
+      label(for='mute') Mute
+      input#mute(type='checkbox' checked)

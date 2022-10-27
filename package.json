@@ -1,0 +1,7 @@
+{
+  "type": "module",
+  "devDependencies": {
+    "esbuild": "^0.15.12",
+    "esbuild-plugin-ghpages-pwa": "github:firien/esbuild-plugin-ghpages-pwa"
+  }
+}
