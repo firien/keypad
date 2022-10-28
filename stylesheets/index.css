@@ -47,8 +47,10 @@ body, input, dialog {
 #clear, #enter {
   font-size: min(6vw, 6vh);
 }
-.grid button:hover {
-  background-color: hsl(0, 0%, 90%);
+@media (any-hover: hover) {
+  .grid button:hover {
+    background-color: hsl(0, 0%, 90%);
+  }
 }
 
 #clear {
