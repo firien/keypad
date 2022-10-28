@@ -1,5 +1,5 @@
 import { beep, boop } from './audio.js'
-import { shake } from './shake.js'
+import { shake, bounce } from './shake.js'
 
 let mute = true
 let sequence = []
@@ -13,6 +13,11 @@ try {
 const clearSequence = () => {
   sequence.length = 0
   document.querySelector('output').value = sequence.join('')
+}
+
+const success = () => {
+  let buttons = Array.from(document.querySelectorAll('.grid button:not([id])'))
+  bounce(buttons)
 }
 
 document.addEventListener('DOMContentLoaded', () => {
@@ -35,6 +40,7 @@ document.addEventListener('DOMContentLoaded', () => {
     if (sequence.join('') === answer) {
       // if (!mute) {
         boop(400,800)
+        success()
       // }
     } else {
       // if (!mute) {

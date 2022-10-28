@@ -34,3 +34,27 @@ export const shake = (element) => {
   }
 }
 
+// https://gist.github.com/ddgromit/859699?permalink_comment_id=783800#gistcomment-783800
+const shuffle = (a) => {
+  let i = a.length
+  while (--i > 0) {
+    let j = ~~(Math.random() * (i + 1))
+    let t = a[j]
+    a[j] = a[i]
+    a[i] = t
+  }
+  return a
+}
+
+export const bounce = (elements) => {
+  let delay = 0
+  for (let element of shuffle(elements)) {
+    let y = Math.max(8, Math.floor(Math.random() * 15))
+    element.animate([
+      { transform: 'translateY(0px)' },
+      { transform: `translateY(-${y}px)` },
+      { transform: 'translateY(0px)' }
+    ], { duration: 400, easing: 'ease-in-out', delay: delay * 1000})
+    delay += 0.025
+  }
+}
