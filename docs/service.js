@@ -1,12 +1,12 @@
-const tag = '1';
+const tag = '2';
 const prefix = 'KEYPAD';
 const cacheName = `${prefix}-${tag}`;
 
 const urls = [
-  "/keypad/javascripts/index-ASQHXNQP.js.map",
-  "/keypad/javascripts/index-ASQHXNQP.js",
-  "/keypad/stylesheets/index-OKKCZN7F.css.map",
-  "/keypad/stylesheets/index-OKKCZN7F.css",
+  "/keypad/javascripts/index-HSZPY5H6.js.map",
+  "/keypad/javascripts/index-HSZPY5H6.js",
+  "/keypad/stylesheets/index-VPOMZ6BX.css.map",
+  "/keypad/stylesheets/index-VPOMZ6BX.css",
   "/keypad/images/icon-152-72CTGGWN.png",
   "/keypad/images/icon-167-KPWCMVJQ.png",
   "/keypad/images/icon-180-2545OKH3.png",

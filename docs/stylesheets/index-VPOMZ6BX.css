@@ -47,8 +47,10 @@ dialog {
 #enter {
   font-size: min(6vw, 6vh);
 }
-.grid button:hover {
-  background-color: hsl(0, 0%, 90%);
+@media (any-hover: hover) {
+  .grid button:hover {
+    background-color: hsl(0, 0%, 90%);
+  }
 }
 #clear {
   background-color: hsl(0, 100%, 50%);
@@ -108,4 +110,4 @@ button {
   border: thin solid var(--text-color);
   cursor: pointer;
 }
-/*# sourceMappingURL=index-OKKCZN7F.css.map */
+/*# sourceMappingURL=index-VPOMZ6BX.css.map */

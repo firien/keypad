@@ -89,6 +89,28 @@
       return element.animate(keyFrames, options);
     }
   };
+  var shuffle = (a) => {
+    let i = a.length;
+    while (--i > 0) {
+      let j = ~~(Math.random() * (i + 1));
+      let t = a[j];
+      a[j] = a[i];
+      a[i] = t;
+    }
+    return a;
+  };
+  var bounce = (elements) => {
+    let delay = 0;
+    for (let element of shuffle(elements)) {
+      let y = Math.max(8, Math.floor(Math.random() * 15));
+      element.animate([
+        { transform: "translateY(0px)" },
+        { transform: `translateY(-${y}px)` },
+        { transform: "translateY(0px)" }
+      ], { duration: 400, easing: "ease-in-out", delay: delay * 1e3 });
+      delay += 0.025;
+    }
+  };
 
   // javascripts/index.js
   var mute = true;
@@ -102,6 +124,10 @@
   var clearSequence = () => {
     sequence.length = 0;
     document.querySelector("output").value = sequence.join("");
+  };
+  var success = () => {
+    let buttons = Array.from(document.querySelectorAll(".grid button:not([id])"));
+    bounce(buttons);
   };
   document.addEventListener("DOMContentLoaded", () => {
     document.querySelector("form input").value = answer;
@@ -119,6 +145,7 @@
     const submit = async (e) => {
       if (sequence.join("") === answer) {
         boop(400, 800);
+        success();
       } else {
         boop(100, 50);
         await shake(output).finished;
@@ -155,4 +182,4 @@
     });
   });
 })();
-//# sourceMappingURL=index-ASQHXNQP.js.map
+//# sourceMappingURL=index-HSZPY5H6.js.map
