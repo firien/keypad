@@ -5,7 +5,7 @@ let { plugin: githubPages, buildOptions } = ghPages({
   name: 'keypad',
   app: 'keypad',
   description: 'Probably does something cool',
-  cacheTag: 2,//used to clear old browser caches
+  cacheTag: 3,//used to clear old browser caches
   serve: 3015// port for local web server
 })
 
