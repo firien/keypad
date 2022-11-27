@@ -3,5 +3,10 @@
   "devDependencies": {
     "esbuild": "^0.15.12",
     "esbuild-plugin-ghpages-pwa": "github:firien/esbuild-plugin-ghpages-pwa"
+  },
+  "scripts": {
+    "dev": "node ./build.js",
+    "build": "NODE_ENV=production node ./build.js"
   }
+
 }

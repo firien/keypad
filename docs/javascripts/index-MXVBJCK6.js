@@ -1,4 +1,31 @@
 (() => {
+  // node_modules/esbuild-plugin-ghpages-pwa/src/pwa.js
+  var pwa = () => {
+    if ("serviceWorker" in navigator) {
+      let scope = window.location.pathname;
+      navigator.serviceWorker.register(`${scope}service.js`, { scope }).then((registration) => {
+        const refreshPage = (worker) => {
+          if (worker.state != "activated") {
+            worker.postMessage({ action: "skipWaiting" });
+          }
+          window.location.reload();
+        };
+        if (registration.waiting) {
+          refreshPage(registration.waiting);
+        }
+        registration.addEventListener("updatefound", () => {
+          let newWorker = registration.installing;
+          newWorker.addEventListener("statechange", () => {
+            if (newWorker.state === "installed") {
+              refreshPage(newWorker);
+            }
+          });
+        });
+      });
+    }
+  };
+  pwa();
+
   // javascripts/audio.js
   var frequencies = [
     [1336, 941],
@@ -182,4 +209,4 @@
     });
   });
 })();
-//# sourceMappingURL=index-HSZPY5H6.js.map
+//# sourceMappingURL=index-MXVBJCK6.js.map

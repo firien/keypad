@@ -1,10 +1,10 @@
-const tag = '2';
+const tag = '3';
 const prefix = 'KEYPAD';
 const cacheName = `${prefix}-${tag}`;
 
 const urls = [
-  "/keypad/javascripts/index-HSZPY5H6.js.map",
-  "/keypad/javascripts/index-HSZPY5H6.js",
+  "/keypad/javascripts/index-MXVBJCK6.js.map",
+  "/keypad/javascripts/index-MXVBJCK6.js",
   "/keypad/stylesheets/index-VPOMZ6BX.css.map",
   "/keypad/stylesheets/index-VPOMZ6BX.css",
   "/keypad/images/icon-152-72CTGGWN.png",
