@@ -1,19 +1,19 @@
 import esbuild from 'esbuild';
 import ghPages from 'esbuild-plugin-ghpages-pwa';
 
-let { plugin: githubPages, buildOptions } = ghPages({
+const { plugin: githubPages, buildOptions, isProduction } = ghPages({
   name: 'keypad',
   app: 'keypad',
   description: 'Probably does something cool',
-  cacheTag: 3,//used to clear old browser caches
+  cacheTag: 4,//used to clear old browser caches
   serve: 3015// port for local web server
 })
 
 try {
-  await esbuild.build(Object.assign(buildOptions, {
+  const options = Object.assign(buildOptions, {
     entryPoints: [
       'javascripts/index.js',
-      'stylesheets/index.css',
+      'stylesheets/application.css',
       'images/icon-152.png',
       'images/icon-167.png',
       'images/icon-180.png',
@@ -24,7 +24,13 @@ try {
     plugins: [
       githubPages
     ]
-  }))
+  })
+  if (isProduction) {
+    await esbuild.build(options)
+  } else {
+    const ctx = await esbuild.context(options)
+    ctx.watch()
+  }
 } catch (err) {
   console.error(err)
   process.exit(1)

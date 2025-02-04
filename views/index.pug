@@ -10,7 +10,7 @@ html(lang="en")
     // scripts
     script&attributes(scriptAttributes('index.js'))
     // css
-    link(rel='stylesheet' href=webAssetPath('index.css'))
+    link(rel='stylesheet' href=webAssetPath('application.css'))
     // icons
     link(rel="icon" href="favicon.ico" type="image/x-icon")
     each icon in iconLinks()
@@ -28,13 +28,13 @@ html(lang="en")
     dialog
       form(method='dialog')
         label Set Number
-        input(type='number' autofocus)
+        input(type='number' autofocus min="0")
         .bar
           button Cancel
           button OK
     div#settings
       button#number Set Number
       label(for='obscure') Obscure
-      input#obscure(type='checkbox')
+      input#obscure(type='checkbox' switch)
       label(for='mute') Mute
-      input#mute(type='checkbox' checked)
+      input#mute(type='checkbox' checked switch)
