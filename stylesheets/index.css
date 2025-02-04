@@ -4,14 +4,6 @@
   --text-color: black;
   --link-color: hsl(240, 100%, 47%);
 }
-@media (prefers-color-scheme: dark) {
-  :root {
-    --bg-color-secondary: hsl(240, 100%, 13%);
-    --bg-color-primary: black;
-    --text-color: white;
-    --link-color: hsl(240, 100%, 77%);
-  }
-}
 
 *:not(dialog) {
   font-family: -apple-system, Helvetica;
@@ -46,11 +38,6 @@ body, input, dialog {
 }
 #clear, #enter {
   font-size: min(6vw, 6vh);
-}
-@media (any-hover: hover) {
-  .grid button:hover {
-    background-color: hsl(0, 0%, 90%);
-  }
 }
 
 #clear {
@@ -92,13 +79,6 @@ dialog {
 dialog::backdrop {
   -webkit-backdrop-filter: blur(0.15rem);
   backdrop-filter: blur(0.15rem);
-}
-
-@media screen and (min-width:500px) {
-  .grid {
-    grid-template-columns: repeat(3, 0.2fr);
-    justify-content: center;
-  }
 }
 
 .bar {

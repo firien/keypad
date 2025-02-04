@@ -1,0 +1,6 @@
+:root {
+  --bg-color-secondary: hsl(240, 100%, 13%);
+  --bg-color-primary: black;
+  --text-color: white;
+  --link-color: hsl(240, 100%, 77%);
+}
