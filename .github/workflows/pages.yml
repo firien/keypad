@@ -21,19 +21,11 @@ jobs:
       - run: npm run build
         env:
           NODE_ENV: production
-      - name: Build artifact
-        run: |
-          tar \
-            --dereference --hard-dereference \
-            --directory docs \
-            -cvf "$RUNNER_TEMP/artifact.tar" \
-            .
-      - name: Upload artifact
-        uses: actions/upload-artifact@main
+      - name: Upload static files as artifact
+        id: deployment
+        uses: actions/upload-pages-artifact@v3 # or specific "vX.X.X" version tag for this action
         with:
-          name: github-pages
-          path: ${{ runner.temp }}/artifact.tar
-          retention-days: 1
+          path: docs/
 
   deploy:
     # Add a dependency to the build job
@@ -53,4 +45,4 @@ jobs:
     steps:
       - name: Deploy to GitHub Pages
         id: deployment
-        uses: actions/deploy-pages@v1
+        uses: actions/deploy-pages@v4
